@@ -1,3 +1,20 @@
-<h2 id="title">Welcome to Ember</h2>
+<div id="application">
+  {{top-nav}}
 
-{{outlet}}
+  <main id="main" class="container-fluid">
+    <div class="row">
+      <div class="col-lg-10 col-xs-12">
+        <div id="game">
+          {{outlet}}
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-8 col-xs-12">
+        <div id="sidenav">
+          {{outlet "sidenav"}}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  {{ember-notify messageStyle="bootstrap" closeAfter=10000}}
+</div>

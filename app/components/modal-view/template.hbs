@@ -1,0 +1,36 @@
+<div class="row panel panel-info">
+  <div class="panel-heading">
+    <h6>User Panel</h6>
+  </div>
+  <div class="panel-body panel-tabs">
+    <ul class="nav nav-tabs row">
+      {{#link-to "user.index" tagName="li"}}
+        {{#link-to "user.index"}}
+          Index
+        {{/link-to}}
+      {{/link-to}}
+      {{#link-to "user.accounts.new" tagName="li"}}
+        {{#link-to "user.accounts.new"}}
+          {{fa-icon "add"}}
+          New Warehouse
+        {{/link-to}}
+      {{/link-to}}
+      {{#link-to "user.accounts.index" tagName="li"}}
+        {{#link-to "user.accounts.index"}}
+          My Warehouses
+        {{/link-to}}
+      {{/link-to}}
+      {{#link-to "user.employees" tagName="li"}}
+        {{#link-to "user.employees"}}
+          My Employers
+        {{/link-to}}
+      {{/link-to}}
+    </ul>
+  </div>
+  <div class="panel-contents">
+    {{yield}}
+  </div>
+  <div class="panel-footer">
+    <button>Dismiss</button>
+  </div>
+</div>

@@ -3,9 +3,16 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'warehouse',
+    namespace: "api",
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    cookieKey: "_apiv4_key",
+    host: "http://localhost:4000",
+    socketNamespace: "ws://localhost:4000/socket",
+    emblemOptions: {
+      blueprints: false
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
