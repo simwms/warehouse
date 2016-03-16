@@ -1,5 +1,12 @@
 `import Ember from 'ember'`
 
+markTile = (x) -> 
+  x.set "tileType", x.constructor.modelName
+  x
+markLine = (x) -> 
+  x.set "lineType", x.constructor.modelName
+  x
+
 RouteTileLineFindersMixin = Ember.Mixin.create
   findTiles: (type) ->
     @store
@@ -9,7 +16,7 @@ RouteTileLineFindersMixin = Ember.Mixin.create
   findLines: (type) ->
     @store
     .findAll type
-    .then (tiles) ->
-      tiles.map markLine
+    .then (lines) ->
+      lines.map markLine
 
 `export default RouteTileLineFindersMixin`

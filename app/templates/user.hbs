@@ -1,9 +1,34 @@
 {{#modal-dialog 
   targetAttachment="center"
-  close='closeModal' 
   translucentOverlay=true}}
-  {{#modal-view}}
+  {{#modal-view as |yields|}}
+    {{#yields.header}}
+      <h6>User Panel</h6>
+    {{/yields.header}}
+    {{#yields.links}}
+      <ul class="nav nav-tabs row">
+        {{#nav-tab "user.index"}}
+          Index
+        {{/nav-tab}}
+        {{#nav-tab "user.accounts.new"}}
+          {{fa-icon "plus"}} New Warehouse
+        {{/nav-tab}}
+        {{#nav-tab "user.accounts.index"}}
+          My Warehouses
+        {{/nav-tab}}
+        {{#nav-tab "user.employees"}}
+          My Employers
+        {{/nav-tab}}
+      </ul>
+    {{/yields.links}}
     {{outlet}}
+    {{#yields.footer}}
+      <div class="text-right">
+        <button class="btn btn-default" {{action "logout"}}>
+          {{fa-icon "sign-out"}} Quit
+        </button>
+      </div>
+    {{/yields.footer}}
   {{/modal-view}}
 {{/modal-dialog}}
 

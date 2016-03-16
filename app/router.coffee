@@ -34,6 +34,8 @@ Router.map ->
           collection "histories"
           collection "trucks"
           collection "weightickets"
+        collection "companies", ->
+          form "new"
 
       collection "batches", ->
         model "batch", ->
@@ -57,6 +59,7 @@ Router.map ->
 
       collection "reports", ->
         form "new"
+        model "report"
 
       collection "scales", ->
         model "scale"

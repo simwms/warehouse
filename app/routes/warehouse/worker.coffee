@@ -1,18 +1,12 @@
 `import Ember from 'ember'`
 `import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
-`import RouteTileLineFinders from '../mixins/route-tile-line-finders'`
 `import moment from 'moment'`
 `import {processMacro, isLive} from 'warehouse/utils/process-query'`
 
 {inject, RSVP} = Ember
 
-WarehouseWorkerRoute = Ember.Route.extend AuthenticatedRouteMixin, RouteTileLineFinders,
+WarehouseWorkerRoute = Ember.Route.extend AuthenticatedRouteMixin,
   socket: inject.service("socket")
-  beforeModel: ->
-    switch 
-      when @session.get("warehouseAccount")? then null
-      when @xession.get("isAuthenticated") then @transitionTo "apix"
-      else @_super arguments...
 
   model: ->
     RSVP.hash
@@ -22,15 +16,8 @@ WarehouseWorkerRoute = Ember.Route.extend AuthenticatedRouteMixin, RouteTileLine
 
   renderTemplate: ->
     @_super arguments...
-    @render "sidenavs/apiz",
+    @render "sidenavs/warehouse/worker",
       outlet: "sidenav"
-      into: "apiz"
-
-  afterModel: ->
-    @get("socket")
-    .connect()
-    .then =>
-      @xession.connect("user")
-
+      into: "application"
 
 `export default WarehouseWorkerRoute`

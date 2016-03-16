@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Warehouse Overview</div>
+
+  <div class="list-group">
+    {{#link-to "warehouse.admin" class="list-group-item"}}
+      {{fa-icon "cogs" fixedWith=true}} Admin Panel
+    {{/link-to}}
+    {{#link-to "user" class="list-group-item"}}
+      {{fa-icon "user" fixedWith=true}} User Panel
+    {{/link-to}}
+    {{#link-to "warehouse.worker" class="list-group-item"}}
+      {{fa-icon "circle-o" fixedWith=true}} Open Warehouse
+    {{/link-to}}
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{{#portal-content for="header-subtext"}}
+  Dock No. {{model.id}}
+{{/portal-content}}
+
+{{#sub-nav model=model pages=(append "index")}}
+  {{#link-to "warehouse.worker.docks.dock.batches.new" class="btn btn-default"}}
+    {{fa-icon "download"}} Unload Batch from Truck
+  {{/link-to}}
+{{/sub-nav}}
+
+{{outlet}}

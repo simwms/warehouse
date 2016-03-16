@@ -1,0 +1,28 @@
+& {
+  width: inherit;
+  height: inherit;
+}
+.road {
+  polyline {
+    stroke: #263238;
+    stroke-width: 10;
+    fill: none;
+  }
+}
+
+.tile-rect {
+  stroke: #263238;
+  stroke-width: 2;
+  fill: fade-out(#fff, 1);
+  cursor: pointer;
+  &:hover {
+    fill: fade-out(#e0f7fa, 0.3);
+  }
+}
+
+.wall {
+  polyline {
+    stroke: #263238;
+    stroke-width: 5;
+  }
+}

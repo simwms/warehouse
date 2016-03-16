@@ -2,7 +2,7 @@
 
 Actions =
   selectAccount: (account) ->
-    @xession.update {account}
+    @xession.login {account}
     .then =>
       @transitionTo "warehouse"
   login: ->

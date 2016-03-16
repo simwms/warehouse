@@ -1,0 +1,23 @@
+{{#map-grid mode="query-mode" action="interact"}}
+  {{#each model.scales as |tile|}}
+    {{map-grid-tile model=tile}}
+  {{/each}}
+  {{#each model.desks as |tile|}}
+    {{map-grid-tile model=tile}}
+  {{/each}}
+  {{#each model.docks as |tile|}}
+    {{map-grid-tile model=tile}}
+  {{/each}}
+  {{#each model.gates as |tile|}}
+    {{map-grid-tile model=tile}}
+  {{/each}}
+  {{#each model.cells as |tile|}}
+    {{map-grid-tile model=tile}}
+  {{/each}}
+  {{#each model.roads as |line|}}
+    {{map-grid-polyline model=line}}
+  {{/each}}
+  {{#each model.walls as |line|}}
+    {{map-grid-polyline model=line}}
+  {{/each}}
+{{/map-grid}}

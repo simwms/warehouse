@@ -1,0 +1,20 @@
+{{#portal-content for="header-subtext"}}
+  Appt No. {{model.id}}
+{{/portal-content}}
+
+{{#sub-nav model=model}}
+  {{#link-to "warehouse.worker.appointments.appointment.batches" model class="btn btn-default"}}
+    Batches
+  {{/link-to}}
+  {{#link-to "warehouse.worker.appointments.appointment.companies" model class="btn btn-default"}}
+    Company
+  {{/link-to}}
+  {{#link-to "warehouse.worker.appointments.appointment.trucks" model class="btn btn-default"}}
+    Truck
+  {{/link-to}}
+  {{#link-to "warehouse.worker.appointments.appointment.weightickets" model class="btn btn-default"}}
+    Weigticket
+  {{/link-to}}
+{{/sub-nav}}
+
+{{outlet}}

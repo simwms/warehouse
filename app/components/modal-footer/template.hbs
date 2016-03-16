@@ -1,0 +1,12 @@
+{{#if paginate}}
+  <div class="col-xs-6">
+    {{paginate-group paginate=paginate}}
+  </div>  
+{{/if}}
+<div class="col-xs-6 {{unless paginate "col-xs-offset-6"}}">
+  <div class="text-right">
+    {{#link-to "warehouse.worker.index" class="btn btn-default"}}
+      {{fa-icon "close"}} Close
+    {{/link-to}}
+  </div>
+</div>

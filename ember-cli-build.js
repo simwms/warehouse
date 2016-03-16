@@ -5,8 +5,8 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     babel: { includePolyfill: true },
-    emberCliFontAwesome: {
-      useScss: true
+    'ember-font-awesome': {
+      useScss: true, // for ember-cli-sass
     },
     sassOptions: {
       includePaths: [

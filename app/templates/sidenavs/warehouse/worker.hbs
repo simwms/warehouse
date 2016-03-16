@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Warehouse Worker Overview</div>
+  <div class="panel-body">Feelings here</div>
+  <div class="list-group">
+    {{#link-to "warehouse.worker.trucks" class="list-group-item"}}
+      {{fa-icon "truck" fixedWidth=true}} Trucks
+      <span class="badge">{{model.trucks.length}}</span>
+    {{/link-to}}
+    {{#link-to "warehouse.worker.appointments" class="list-group-item"}}
+      {{fa-icon "calendar" fixedWidth=true}} Appointments
+      <span class="badge">{{model.appointments.length}}</span>
+    {{/link-to}}
+    {{#link-to "warehouse.worker.batches" class="list-group-item"}}
+      {{fa-icon "cubes" fixedWidth=true}} Inventory
+      <span class="badge">{{model.batches.length}}</span>
+    {{/link-to}}
+    {{#link-to "warehouse.worker.employees" class="list-group-item"}}
+      {{fa-icon "users" fixedWidth=true}} Workers
+    {{/link-to}}
+    {{#link-to "warehouse.worker.reports" class="list-group-item"}}
+      {{fa-icon "bar-chart" fixedWidth=true}} Reports
+    {{/link-to}}
+  </div>
+  <div class="panel-body">Feelings here</div>
+  <div class="list-group">
+    {{#link-to "warehouse.index" class="list-group-item"}}
+      {{fa-icon "arrow-left" fixedWith=true}} Warehouse Overview
+    {{/link-to}}
+  </div>
+</div>

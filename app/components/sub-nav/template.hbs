@@ -1,0 +1,18 @@
+{{#if (contains "index" pages)}}
+  {{#link-to (join "." (append basePath collectionName modelName "index")) model class=btnClass}}
+    {{fa-icon "info-circle" fixedWith=true}} {{capitalize modelName}} Info
+  {{/link-to}}
+{{/if}}
+
+{{#if (contains "edit" pages)}}
+  {{#link-to (join "." (append basePath collectionName modelName "edit")) model class=btnClass}}
+    {{fa-icon "edit" fixedWith=true}} Edit {{capitalize modelName}}
+  {{/link-to}}
+{{/if}}
+
+{{#if (contains "histories" pages)}}
+  {{#link-to (join "." (append basePath collectionName modelName "histories")) model class=btnClass}}
+    {{fa-icon "clock-o" fixedWith=true}} {{capitalize modelName}} History
+  {{/link-to}}
+{{/if}}
+{{yield}}

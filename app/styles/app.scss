@@ -13,3 +13,31 @@
 @import "ember-power-select";
 @import "ember-timezone-input";
 @import "pod-styles";
+@import "font-awesome";
+#main {
+  position: fixed;
+  top: 55px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#game,
+#login {
+  height: calc(100vh - 55px);
+  padding-right: 0;
+}
+#sidenav {
+  height: calc(100vh - 55px);
+  width: 100%;
+  border-left: 2px solid #ccc;
+  @include box-shadow(fade-out(#000, 0.8) -2px 0 5px);
+}
+
+#login {
+  background: {
+    position: center center;
+    image: images-url('simcity.jpg')
+  }
+  padding-top: 15vh;
+}

@@ -1,0 +1,33 @@
+{{#modal-dialog 
+  targetAttachment="center"
+  close=(action transitionToRoute "warehouse.worker.index") 
+  translucentOverlay=true}}
+  {{#modal-view as |yields|}}
+    {{#yields.header}}
+      <h6>Appointments <small>{{portal-for name="header-subtext"}}</small></h6>
+    {{/yields.header}}
+    {{#yields.links}}
+      <ul class="nav nav-tabs row">
+        {{#nav-tab "warehouse.worker.appointments.index"}}
+          {{fa-icon "calendar"}} Today's Appointments
+        {{/nav-tab}}
+        {{#nav-tab "warehouse.worker.appointments.new"}}
+          {{fa-icon "plus"}} New Appointment
+        {{/nav-tab}}
+        {{#nav-tab "warehouse.worker.appointments.companies.new"}}
+          {{fa-icon "building"}} New Company
+        {{/nav-tab}}
+        {{#nav-tab "warehouse.worker.appointments.search"}}
+          {{fa-icon "search"}} Search Appointments
+        {{/nav-tab}}
+      </ul>
+    {{/yields.links}}
+
+    {{outlet}}
+
+    {{#yields.footer}}
+      {{modal-footer paginate=paginate}}
+    {{/yields.footer}}
+  {{/modal-view}}
+{{/modal-dialog}}
+

@@ -1,5 +1,12 @@
 # Warehouse
 
+## TODO
+1. appointments new company and power select search needs to work properly
+2. appointments index pagination is a fucking mess for some reason
+3. appointments search page
+4. fix companies so that it's not as retarded on appointments index
+
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
