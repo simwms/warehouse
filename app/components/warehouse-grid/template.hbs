@@ -1,23 +1,33 @@
-{{#map-grid mode="query-mode" action="interact"}}
-  {{#each model.scales as |tile|}}
-    {{map-grid-tile model=tile}}
+{{#map-grid mode=mapMode action=query as |grid|}}
+  {{#each (filter-by "isValid" model.scales) as |tile|}}
+    {{map-grid-tile grid=grid model=tile}}
   {{/each}}
-  {{#each model.desks as |tile|}}
-    {{map-grid-tile model=tile}}
+  {{#each (filter-by "isValid" model.desks) as |tile|}}
+    {{map-grid-tile grid=grid model=tile}}
   {{/each}}
-  {{#each model.docks as |tile|}}
-    {{map-grid-tile model=tile}}
+  {{#each (filter-by "isValid" model.docks) as |tile|}}
+    {{map-grid-tile grid=grid model=tile}}
   {{/each}}
-  {{#each model.gates as |tile|}}
-    {{map-grid-tile model=tile}}
+  {{#each (filter-by "isValid" model.gates) as |tile|}}
+    {{map-grid-tile grid=grid model=tile}}
   {{/each}}
-  {{#each model.cells as |tile|}}
-    {{map-grid-tile model=tile}}
+  {{#each (filter-by "isValid" model.cells) as |tile|}}
+    {{map-grid-tile grid=grid model=tile}}
   {{/each}}
-  {{#each model.roads as |line|}}
-    {{map-grid-polyline model=line}}
+  {{#each (filter-by "isValid" model.roads) as |line|}}
+    {{map-grid-polyline grid=grid model=line}}
   {{/each}}
-  {{#each model.walls as |line|}}
-    {{map-grid-polyline model=line}}
+  {{#each (filter-by "isValid" model.walls) as |line|}}
+    {{map-grid-polyline grid=grid model=line}}
   {{/each}}
+
+  {{#if adminMode}}
+    {{map-grid-ghost grid=grid model=model.ghost action=build}}
+    {{map-grid-ghost-box grid=grid action=select}}
+    {{map-grid-ghost-batch grid=grid}}
+  {{/if}}
 {{/map-grid}}
+
+{{#if shouldYield}}
+  {{yield}}
+{{/if}}

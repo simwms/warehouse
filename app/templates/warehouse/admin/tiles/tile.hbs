@@ -1,0 +1,11 @@
+{{#portal-content for="header-subtext"}}
+  Tile No: {{model.tileType}} - {{model.id}}
+{{/portal-content}}
+
+{{sub-nav 
+  basePath="warehouse.admin" 
+  pages=(append "index" "edit" "destroy") 
+  model=model
+  refresh="refresh"}}
+  
+{{outlet}}

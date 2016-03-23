@@ -1,0 +1,53 @@
+{{#em-form-for model action="submit" class="col-xs-12" as |f|}}
+  {{#em-pricing-table flavor="bootstrap" plans=choices chosenPlan=desiredPlan action=(action (mut desiredPlan)) as |ctn|}}
+    {{#em-pricing-card frameworkContainerClass="col-xs-12 col-sm-12 col-md-6 col-lg-6" 
+    table=ctn.table plan=ctn.plan as |yields|}}
+      {{#yields.title}}{{ctn.plan.name}}{{/yields.title}}
+      {{#yields.price}}{{cents ctn.plan.amount}} / Month{{/yields.price}}
+      {{#yields.description}}<small>{{ctn.plan.description}}</small>{{/yields.description}}
+      <li class="list-group-item">
+        {{or ctn.plan.employees "unlimited"}}
+        employee accounts
+        <span class="badge">{{fa-icon "users" fixedWidth=true}}</span>
+      </li>
+      {{#link-to "warehouse.admin.service-plan" ctn.plan class="list-group-item" tagName="li"}}
+        {{#link-to "warehouse.admin.service-plan" ctn.plan}}
+          {{fa-icon "info-circle" fixedWidth=true}} See More...
+        {{/link-to}}
+      {{/link-to}}
+      {{#yields.cta}}Select{{/yields.cta}}
+    {{/em-pricing-card}}
+  {{/em-pricing-table}}
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="autox-form-for__actions">
+        {{#if stripeToken}}
+          <button class="autox-form-for__button btn btn-primary btn-lg {{if model.isSaving "disabled"}}" type="submit">
+            {{#if model.isSaving}}
+              <span class="fa">Busy</span>
+            {{else}}
+              <span class="fa">Confirm</span>
+            {{/if}}
+          </button>
+        {{else if (not-eq currentPlan desiredPlan)}}
+          {{#if (eq desiredPlan.amount 0)}}
+            <button class="btn btn-warning btn-lg" {{action (mut stripeToken) (hash id=null)}}>
+              Downgrade Service Plan
+            </button>
+          {{else}}
+            {{stripe-checkout class="btn btn-success btn-lg"
+              image="images/truck.png"
+              label="Checkout"
+              name="Pisource SimWMS"
+              description=desiredPlan.description
+              amount=desiredPlan.amount
+              panelLabel=(concat "Pay " (cents desiredPlan.amount) " / Month")
+              action="processStripeToken"
+              email=xession.model.email}}
+          {{/if}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+{{/em-form-for}}
+{{yield}}

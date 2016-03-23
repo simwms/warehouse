@@ -1,0 +1,32 @@
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+  <div class="panel panel-danger">
+    <div class="panel-heading">{{fa-icon "warning"}} Close Account</div>
+    <div class="panel-body">
+      Careful, closing your account means terminating your subscription and losing all your data! This cannot be undone!
+    </div>
+    <div class="panel-footer align-center">
+      <button class="btn btn-{{if model.markedForDeletion "default" "danger"}}" {{action (toggle "markedForDeletion" model)}}>
+        {{#if model.markedForDeletion}}
+          {{fa-icon "undo" fixedWidth=true}} Undo Deletion  
+        {{else}}
+          Close Account
+        {{/if}}
+      </button>
+    </div>
+  </div>
+</div>
+{{#if model.markedForDeletion}}
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="panel panel-danger">
+      <div class="panel-heading">{{fa-icon "warning"}} Confirm Deletion</div>
+      <div class="panel-body">
+        Are you sure you wish to close your account?
+      </div>
+      <div class="panel-footer align-center">
+        <button class="btn btn-danger" {{action "closeAccount" model}}>
+          {{fa-icon "bomb" fixedWidth=true}} Confirm Account Deletion
+        </button>
+      </div>
+    </div>
+  </div>
+{{/if}}

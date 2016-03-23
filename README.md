@@ -5,7 +5,10 @@
 2. appointments index pagination is a fucking mess for some reason
 3. appointments search page
 4. fix companies so that it's not as retarded on appointments index
-
+5. actually implement how warehouse admin is handled
+6. make default routes always go to wherever they're closest
+7. when in build mode, disable tile stacking
+8. fix grid scrolling so that it properly handles dragging (or alternatively switch to default browser scrolling)
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.

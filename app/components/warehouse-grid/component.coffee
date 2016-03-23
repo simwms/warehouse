@@ -1,8 +1,5 @@
 `import Ember from 'ember'`
 
-WarehouseGridComponent = Ember.Component.extend
-  actions:
-    interact: (payload) ->
-      @sendAction "action", payload
+WarehouseGridComponent = Ember.Component.extend()
 
 `export default WarehouseGridComponent`

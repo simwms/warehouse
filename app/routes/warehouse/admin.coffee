@@ -2,20 +2,30 @@
 `import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
 WarehouseAdminRoute = Ember.Route.extend AuthenticatedRouteMixin,
-  socket: Ember.inject.service("socket")
+  warehouseAdmin: ->
+    true
   beforeModel: ->
-    switch 
-      when @session.get("warehouseAdmin")? then null
-      when @session.get("warehouseAccount")? then @transitionTo "apiz"
-      when @session.get("isAuthenticated") then @transitionTo "apix"
-      else @_super arguments...
+    unless @warehouseAdmin()
+      @transitionTo "warehouse.index"
+      @notify.alert "You are not an admin"
 
-  model: ->
-    @xession
-    .get("model")
-    .get("user")
-  afterModel: (user) ->
-    @xession.connect("user")
+  setupController: ->
+    @_super arguments...
+    @controllerFor "warehouse"
+    .set "adminMode", true
 
+  renderTemplate: ->
+    @_super arguments...
+    @render "sidenavs/warehouse/admin",
+      outlet: "sidenav"
+      into: "application"
+
+  actions:
+    closeAccount: (account) ->
+      account.destroyRecord()
+      .then =>
+        @transitionTo "user.accounts"
+      .then =>
+        window.location.reload()
 
 `export default WarehouseAdminRoute`

@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Warehouse Admin Overview</div>
+  <div class="panel-body">Admins Properties</div>
+  <div class="list-group">
+    {{#link-to "warehouse.admin.index" class="list-group-item"}}
+      {{fa-icon "question-circle" fixedWidth=true}} Query
+    {{/link-to}}
+    {{#link-to "warehouse.admin.cells" class="list-group-item"}}
+      {{fa-icon "bars" fixedWidth=true}} Tile Index
+    {{/link-to}}
+    {{#link-to "warehouse.admin.build" class="list-group-item"}}
+      {{fa-icon "building-o" fixedWidth=true}} Build
+    {{/link-to}}
+    {{outlet}}
+  </div>
+  <div class="list-group">
+    {{#link-to "warehouse.admin.employees" class="list-group-item"}}
+      {{fa-icon "users" fixedWidth=true}} Workers
+    {{/link-to}}
+    {{#link-to "warehouse.admin.account" xession.model.account class="list-group-item"}}
+      {{fa-icon "wrench" fixedWidth=true}} Account Settings
+    {{/link-to}}
+    {{#link-to "warehouse.admin.account.upgrade" xession.model.account class="list-group-item"}}
+      {{fa-icon "asterisk" fixedWidth=true}} Upgrade Service Plan
+    {{/link-to}}
+  </div>
+  <div class="panel-body">Feelings here</div>
+  <div class="list-group">
+    {{#link-to "warehouse.admin.destroy" class="list-group-item"}}
+      {{fa-icon "bomb" fixedWidth=true}} Destroy
+    {{/link-to}}
+  </div>
+  <div class="panel-body">Other stuff</div>
+  <div class="list-group">
+    {{#link-to "warehouse.index" class="list-group-item"}}
+      {{fa-icon "arrow-left" fixedWidth=true}} Back
+    {{/link-to}}
+  </div>
+</div>

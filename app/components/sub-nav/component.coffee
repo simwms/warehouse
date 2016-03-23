@@ -11,4 +11,10 @@ SubNavComponent = Ember.Component.extend
   collectionName: apply "modelName", pluralize
   modelName: alias "model.constructor.modelName"
   btnClass: "btn btn-default"
+
+  destroyRecord: ->
+    @get("model")
+    .destroyRecord()
+    .then =>
+      @sendAction "refresh"
 `export default SubNavComponent`

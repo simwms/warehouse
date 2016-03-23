@@ -1,3 +1,9 @@
-{{warehouse-grid model=model action="query"}}
-
-{{outlet}}
+{{#warehouse-grid model=model
+  shouldYield=shouldYield
+  mapMode=mapMode
+  adminMode=adminMode
+  query=(if adminMode (action adminQuery) (action workerQuery))
+  select=(if adminMode (action selectModels))
+  build=(pipe (action warehouseBuilder.build) (action saveModel))}}
+  {{outlet}}
+{{/warehouse-grid}}

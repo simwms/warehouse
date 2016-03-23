@@ -2,6 +2,9 @@
 `import config from './config/environment'`
 `import {DSL} from 'autox'`
 
+PolymorphicRoutes = ["cell", "desk", "dock", "gate", "road", "scale", "wall"]
+
+{String: {pluralize}} = Ember
 Router = Ember.Router.extend
   location: config.locationType
 
@@ -17,9 +20,24 @@ Router.map ->
 
   namespace "warehouse", ->
     namespace "admin", ->
+      model "account", ->
+        form "upgrade"
+        form "danger"
+
+      model "service-plan"
+      
       collection "employees", ->
         form "new"
         model "employee"
+
+      ## ToDo: Implement polymorphic one day      
+      for tile in PolymorphicRoutes
+        collection pluralize(tile), ->
+          model tile, -> form "edit"
+      namespace "build", ->
+        for tile in PolymorphicRoutes
+          collection pluralize(tile), -> form "new"
+      view "destroy"
 
     namespace "worker", ->
       collection "appointments", ->
@@ -72,4 +90,5 @@ Router.map ->
       model "weighticket", ->
         form "edit"
 
+`export {Router, PolymorphicRoutes}`
 `export default Router`

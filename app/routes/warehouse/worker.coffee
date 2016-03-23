@@ -20,4 +20,9 @@ WarehouseWorkerRoute = Ember.Route.extend AuthenticatedRouteMixin,
       outlet: "sidenav"
       into: "application"
 
+  setupController: ->
+    @_super arguments...
+    @controllerFor "warehouse"
+    .set "adminMode", false
+
 `export default WarehouseWorkerRoute`

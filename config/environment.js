@@ -13,6 +13,10 @@ module.exports = function(environment) {
     emblemOptions: {
       blueprints: false
     },
+    stripe: {
+      key: "pk_test_9VNs5lmJpCba3wXgHTbjTcCh",
+      publishableKey: "pk_test_9VNs5lmJpCba3wXgHTbjTcCh"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

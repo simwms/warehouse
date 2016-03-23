@@ -1,10 +1,9 @@
 `import Ember from 'ember'`
 `import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
-`import RouteTileLineFinders from 'warehouse/mixins/route-tile-line-finders'`
 
 {RSVP} = Ember
 
-WarehouseRoute = Ember.Route.extend AuthenticatedRouteMixin, RouteTileLineFinders,
+WarehouseRoute = Ember.Route.extend AuthenticatedRouteMixin,
   socket: Ember.inject.service "socket"
   warehouseLoggedIn: ->
     @xession.get("loggedIn") and @xession.get("authData.data.relationships.account.data.id")?
@@ -16,13 +15,13 @@ WarehouseRoute = Ember.Route.extend AuthenticatedRouteMixin, RouteTileLineFinder
 
   model: ->
     RSVP.hash
-      scales: @findTiles "scale"
-      desks: @findTiles "desk"
-      docks: @findTiles "dock"
-      gates: @findTiles "gate"
-      cells: @findTiles "cell"
-      roads: @findLines "road"
-      walls: @findLines "wall"
+      scales: @store.findAll "scale"
+      desks: @store.findAll "desk"
+      docks: @store.findAll "dock"
+      gates: @store.findAll "gate"
+      cells: @store.findAll "cell"
+      roads: @store.findAll "road"
+      walls: @store.findAll "wall"
 
   renderTemplate: ->
     @_super arguments...
@@ -32,18 +31,9 @@ WarehouseRoute = Ember.Route.extend AuthenticatedRouteMixin, RouteTileLineFinder
 
   afterModel: ->
     @xession.connect "account"
-    
+
   actions:
-    query: (tile) ->
-      id = tile.get "id"
-      switch tile.get("tileType")
-        when "cell"
-          @transitionTo "warehouse.worker.cells.cell", id
-        when "dock"
-          @transitionTo "warehouse.worker.docks.dock", id
-        when "scale"
-          @transitionTo "warehouse.worker.scales.scale", id
-        when "desk"
-          @transitionTo "warehouse.worker.appointments"
+    refresh: ->
+      @refresh()
 
 `export default WarehouseRoute`

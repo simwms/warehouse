@@ -1,7 +1,7 @@
 `import { test, moduleForComponent } from 'ember-qunit'`
 `import hbs from 'htmlbars-inline-precompile'`
 
-moduleForComponent 'paginate-group', 'Integration | Component | paginate group', {
+moduleForComponent 'account-upgrade-form', 'Integration | Component | account upgrade form', {
   integration: true
 }
 
@@ -11,15 +11,15 @@ test 'it renders', (assert) ->
   # Set any properties with @set 'myProperty', 'value'
   # Handle any actions with @on 'myAction', (val) ->
 
-  @render hbs """{{paginate-group}}"""
+  @render hbs """{{account-upgrade-form}}"""
 
   assert.equal @$().text().trim(), ''
 
   # Template block usage:
   @render hbs """
-    {{#paginate-group}}
+    {{#account-upgrade-form}}
       template block text
-    {{/paginate-group}}
+    {{/account-upgrade-form}}
   """
 
   assert.equal @$().text().trim(), 'template block text'

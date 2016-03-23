@@ -1,0 +1,26 @@
+{{#modal-dialog 
+  targetAttachment="center"
+  close=(action transitionToRoute "warehouse.admin.index") 
+  translucentOverlay=true}}
+  {{#modal-view as |yields|}}
+    {{#yields.header}}
+      <h6>Warehouse Workers<small>{{portal-for name="header-subtext"}}</small></h6>
+    {{/yields.header}}
+    {{#yields.links}}
+      <ul class="nav nav-tabs row">
+        {{#nav-tab "warehouse.admin.employees.index"}}
+          {{fa-icon "users" fixedWidth=true}} Employee Index
+        {{/nav-tab}}
+        {{#nav-tab "warehouse.admin.employees.new"}}
+          {{fa-icon "plus" fixedWidth=true}} Add Employee
+        {{/nav-tab}}
+      </ul>
+    {{/yields.links}}
+    {{outlet}}
+
+    {{#yields.footer}}
+      {{modal-footer adminMode=true}}
+    {{/yields.footer}}
+  {{/modal-view}}
+{{/modal-dialog}}
+

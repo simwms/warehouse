@@ -1,3 +1,9 @@
+{{#if (contains "back" pages)}}
+  {{#link-to (join "." (append basePath collectionName "index")) class=btnClass}}
+    {{fa-icon "arrow-left" fixedWith=true}} Back
+  {{/link-to}}
+{{/if}}
+
 {{#if (contains "index" pages)}}
   {{#link-to (join "." (append basePath collectionName modelName "index")) model class=btnClass}}
     {{fa-icon "info-circle" fixedWith=true}} {{capitalize modelName}} Info
@@ -15,4 +21,10 @@
     {{fa-icon "clock-o" fixedWith=true}} {{capitalize modelName}} History
   {{/link-to}}
 {{/if}}
-{{yield}}
+
+{{#if (contains "destroy" pages)}}
+  {{#link-to (join "." (append basePath collectionName "index")) class=btnClass invokeAction=(action destroyRecord)}}
+    {{fa-icon "bomb"}} Destroy {{capitalize modelName}}
+  {{/link-to}}
+{{/if}}
+{{yield this}}
