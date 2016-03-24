@@ -2,12 +2,16 @@
 `import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
 WarehouseAdminRoute = Ember.Route.extend AuthenticatedRouteMixin,
-  warehouseAdmin: ->
-    true
+  employeeRole: ->
+    @xession.get("model.employee")
+    .then (employee) ->
+      employee.get("role")
   beforeModel: ->
-    unless @warehouseAdmin()
-      @transitionTo "warehouse.index"
-      @notify.alert "You are not an admin"
+    @employeeRole()
+    .then (role) ->
+      unless role in ["admin", "superadmin"]
+        @transitionTo "warehouse.index"
+        @notify.alert "You are not an admin"
 
   setupController: ->
     @_super arguments...

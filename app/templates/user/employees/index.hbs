@@ -1,0 +1,32 @@
+{{#each model as |employee|}}
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="mdl-card mdl-shadow--4dp">
+      <div class="mdl-card__title">
+        <h6 class="mdl-card__title-text">{{employee.account.name}}</h6>
+      </div>
+      <ul class="mdl-list">
+        <li class="mdl-list__item mdl-list__item--two-line">
+          <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-avatar">assignment_ind</i>
+            <span>{{employee.role}}</span>
+            <span class="mdl-list__item-sub-title">Employee Role</span>
+          </span>
+        </li>
+        <li class="mdl-list__item mdl-list__item--two-line">
+          <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-avatar">schedule</i>
+            <span>{{employee.account.timezone}}</span>
+            <span class="mdl-list__item-sub-title">Warehouse Timezone</span>
+          </span>
+        </li>
+      </ul>
+      <div class="mdl-card__actions mdl-card--border">
+        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" 
+          {{action "selectEmployee" employee}}>
+          {{fa-icon "arrow-right" fixedWidth=true}}
+          Select
+        </button>
+      </div>
+    </div>
+  </div> 
+{{/each}}

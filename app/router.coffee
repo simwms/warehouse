@@ -16,7 +16,8 @@ Router.map ->
   namespace "user", ->
     collection "accounts", ->
       form "new"
-    collection "employees"
+    collection "employees", ->
+      view "admin"
 
   namespace "warehouse", ->
     namespace "admin", ->
@@ -28,7 +29,9 @@ Router.map ->
       
       collection "employees", ->
         form "new"
-        model "employee"
+        model "employee", ->
+          form "edit"
+          view "terminate"
 
       ## ToDo: Implement polymorphic one day      
       for tile in PolymorphicRoutes

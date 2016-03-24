@@ -1,8 +1,6 @@
 `import Ember from 'ember'`
 
 UserAccountsRoute = Ember.Route.extend
-  model: ->
-    @modelFor "user"
-    .get "accounts"
+  model: -> []
 
 `export default UserAccountsRoute`

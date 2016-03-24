@@ -1,8 +1,10 @@
 `import Ember from 'ember'`
 
 Actions =
-  selectAccount: (account) ->
-    @xession.login {account}
+  selectEmployee: (employee) ->
+    employee.get("account")
+    .then (account) =>
+      @xession.login {employee, account}
     .then =>
       @transitionTo "warehouse"
   login: ->

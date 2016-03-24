@@ -2,10 +2,19 @@
   Employee Name: {{model.name}}
 {{/portal-content}}
 
-{{sub-nav 
+{{#sub-nav 
   basePath="warehouse.admin"
-  pages=(append "index" "edit" "destroy") 
+  pages=(append "index" "edit" (if model.confirmTermination "destroy"))
   model=model
-  refresh="refresh"}}
-  
+  refresh="refresh" as |nav|}}
+  {{#if (and (eq xession.model.employee.role "superadmin") (not-eq model.role "superadmin"))}}
+    <button class={{nav.btnClass}} {{action (toggle "confirmTermination" model)}}>
+      {{#if model.confirmTermination}}
+        {{fa-icon "undo" fixedWidth=true}} Undo
+      {{else}}
+        {{fa-icon "warning" fixedWidth=true}} Terminate Employee
+      {{/if}}
+    </button>
+  {{/if}}
+{{/sub-nav}}
 {{outlet}}
