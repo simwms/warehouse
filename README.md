@@ -1,8 +1,8 @@
 # Warehouse
 
 ## ToDeploy
-1. user registration and invitation mechanics
-2. properly updating account-details
+1. done (unconfirmed employees) - user registration and invitation mechanics
+2. done (we now ship metas) - properly updating account-details
 3. build the actual website
 
 ## TODO

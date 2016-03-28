@@ -26,6 +26,37 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
+    pace: {
+      // addon-specific options to configure theme
+      theme: 'loading bar',
+      color: 'blue',
+      // pace-specific options
+      // learn more on http://github.hubspot.com/pace/#configuration
+      catchupTime: 50,
+      initialRate: 0.01,
+      minTime: 100,
+      ghostTime: 50,
+      maxProgressPerFrame: 20,
+      easeFactor: 1.25,
+      startOnPageLoad: true,
+      restartOnPushState: true,
+      restartOnRequestAfter: 500,
+      target: 'body',
+      elements: {
+        checkInterval: 100,
+        selectors: ['body', '.ember-view']
+      },
+      eventLag: {
+        minSamples: 10,
+        sampleCount: 3,
+        lagThreshold: 3
+      },
+      ajax: {
+        trackMethods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+        trackWebSockets: true,
+        ignoreURLs: []
+      }
+    },
 
     APP: {
       // Here you can pass flags/options to your application instance
@@ -54,7 +85,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.locationType = 'hash';
+    ENV.baseURL = '/warehouse/';
+    ENV.host = 'https://cryptic-refuge-25793.herokuapp.com/';
+    ENV.socketNamespace = "wss://cryptic-refuge-25793.herokuapp.com/socket";
   }
 
   return ENV;
