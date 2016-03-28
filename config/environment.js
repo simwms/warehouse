@@ -10,6 +10,9 @@ module.exports = function(environment) {
     cookieKey: "_apiv4_key",
     host: "http://localhost:4000",
     socketNamespace: "ws://localhost:4000/socket",
+    "ember-simple-auth": {
+      authenticationRoute: "index"
+    },
     emblemOptions: {
       blueprints: false
     },

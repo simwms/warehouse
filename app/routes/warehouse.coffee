@@ -15,6 +15,7 @@ WarehouseRoute = Ember.Route.extend AuthenticatedRouteMixin,
 
   model: ->
     RSVP.hash
+      account: @xession.get("model.account")
       scales: @store.findAll "scale"
       desks: @store.findAll "desk"
       docks: @store.findAll "dock"
@@ -29,7 +30,9 @@ WarehouseRoute = Ember.Route.extend AuthenticatedRouteMixin,
       outlet: "sidenav"
       into: "application"
 
-  afterModel: ->
+  afterModel: ({account}) ->
+    @_super arguments...
+    @activeServicePlan.set "account", account
     @xession.connect "account"
 
   actions:

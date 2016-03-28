@@ -1,1 +1,6 @@
+<div class="col-xs-12">
+  {{#unless model.servicePlan}}
+    <div class="alert alert-info">{{fa-icon "info-circle"}} You are currently in the trial period of a new warehouse</div>
+  {{/unless}}
+</div>
 {{account-upgrade-form model=model meta=meta action=(action autoxDefaultAction.update this model)}}

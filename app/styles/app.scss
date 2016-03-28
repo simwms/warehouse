@@ -45,3 +45,13 @@
 .mdl-card {
   width: 100%;
 }
+
+.demo-card-wide > .mdl-card__title {
+  height: 250px;
+  background: {
+    size: cover;
+    repeat: no-repeat;
+    position: right center;
+    image: images-url('warehouse-hero.jpg');
+  }
+}

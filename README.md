@@ -13,6 +13,9 @@
 7. when in build mode, disable tile stacking
 8. fix grid scrolling so that it properly handles dragging (or alternatively switch to default browser scrolling)
 9. rework reports so that it's not so stupid
+10. reimplement select mode in the admin panel
+11. figure out proper picture attachment
+12. figure out proper video streaming
 
 5. done - actually implement how warehouse admin is handled
 6. done - make default routes always go to wherever they're closest

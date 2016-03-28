@@ -5,6 +5,10 @@ UserRoute = Ember.Route.extend AuthenticatedRouteMixin,
     @xession
     .get "model"
     .get "user"
+    .catch =>
+      @xession.logout()
+      @notify.alert "Your session cookie was invalid, please login again"
+      @transitionTo "index"
 
   renderTemplate: ->
     @_super arguments...

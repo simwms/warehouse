@@ -16,6 +16,21 @@
         {{/nav-tab}}
       </ul>
     {{/yields.links}}
+    {{#if (gte model.meta.count activeServicePlan.employees)}}
+      <div class="alert alert-warning">
+        {{fa-icon "exclamation-circle"}} You have already reached the maximum number of employee accounts allowed in this service plan.
+        {{#link-to "warehouse.admin.account.update" xession.model.account class="alert-link"}}
+          Upgrade your service plan.
+        {{/link-to}}
+      </div>
+    {{else}}
+      <div class="alert alert-success">
+        {{fa-icon "info-circle"}} Under your current service plan: 
+        <strong>{{activeServicePlan.name}}</strong>, your warehouse can have a total of 
+        <strong>{{activeServicePlan.employees}}</strong> employee accounts. Including your own, you currently have 
+        <strong>{{model.meta.count}}</strong>.
+      </div>
+    {{/if}}
     {{outlet}}
 
     {{#yields.footer}}
@@ -23,4 +38,3 @@
     {{/yields.footer}}
   {{/modal-view}}
 {{/modal-dialog}}
-

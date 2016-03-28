@@ -10,9 +10,9 @@ WarehouseWorkerRoute = Ember.Route.extend AuthenticatedRouteMixin,
 
   model: ->
     RSVP.hash
-      appointments: @store.filter "appointment", processMacro("live"), isLive
-      trucks: @store.filter "truck", processMacro("live"), isLive
-      batches: @store.filter "batch", processMacro("live"), isLive
+      appointments: @store.query "appointment", processMacro("live")
+      trucks: @store.query "truck", processMacro("live")
+      batches: @store.query "batch", processMacro("live")
 
   renderTemplate: ->
     @_super arguments...

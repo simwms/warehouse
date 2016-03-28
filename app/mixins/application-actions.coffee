@@ -13,8 +13,6 @@ Actions =
   logout: ->
     @xession.logout()
     .then => @refresh()
-  register: (user) ->
-    console.log user
 
 ApplicationActionsMixin = Ember.Mixin.create Actions
 

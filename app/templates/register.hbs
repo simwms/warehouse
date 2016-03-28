@@ -19,10 +19,19 @@
         {{em-password-field f label="Password"}}
         {{em-password-field f name="passwordConfirmation" label="Password Confirmation"}}
         <div class="actions">
-          <button type="submit" class="btn btn-lg btn-primary">
-            {{fa-icon "check"}}
-            <span class="fa">Submit</span>
-          </button>
+          {{#if (eq model.password model.passwordConfirmation)}}
+            <button type="submit" class="btn btn-lg btn-primary {{if model.isSaving "disabled"}}">
+              {{#if model.isSaving}}
+                {{fa-icon "spinner" spin=true fixedWidth=true}} Busy...
+              {{else}}
+                {{fa-icon "check" fixedWidth=true}} Submit
+              {{/if}}
+            </button>
+          {{else}}
+            <div class="alert alert-warning">
+              {{fa-icon "warning" fixedWidth=true}} Password doesn't match confirmation!
+            </div>
+          {{/if}}
         </div>
       {{/em-form-for}}
     </div>

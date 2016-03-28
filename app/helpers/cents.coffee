@@ -14,13 +14,13 @@ bufferify = (x) ->
 reverseChunk = (string, distance) ->
   r = string.length % distance
   head = string.substr(0, r)
-  body = chunk string.substr(r)
+  body = chunk string.substr(r).split(), distance
   body.unshift(head) if isPresent(head)
   body
 
 sepBy = (dollars, distance, separator) ->
   [integer, decimal] = dollars.toString().split(".")
-  reverseChunk(integer, distance).join(separator) + "." + bufferify(decimal)
+  reverseChunk(integer, distance).join(separator) # + "." + bufferify(decimal)
 
 denoteCurrency = (money, currency) ->
   switch currency
@@ -33,7 +33,8 @@ centsToCurrency = flow parseFloat,
   partialRight(denoteCurrency, "USD")
 
 # This function receives the params `params, hash`
-cents = ([amount]) -> centsToCurrency amount
+cents = ([amount]) -> 
+  if amount is 0 then "Free" else centsToCurrency amount
 
 CentsHelper = Ember.Helper.helper cents
 

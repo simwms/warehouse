@@ -7,4 +7,14 @@ RegisterRoute = Ember.Route.extend
   model: ->
     @store.createRecord "user"
 
+  actions:
+    register: (user) ->
+      user.save()
+      .then =>
+        @xession.login user.getProperties("email", "password")
+      .then =>
+        @notify.success "Success! You've been registered"
+        @transitionTo "user"
+
+
 `export default RegisterRoute`
