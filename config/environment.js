@@ -86,6 +86,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.locationType = 'hash';
+    ENV.baseURL = '/warehouse/';
     ENV.host = 'https://cryptic-refuge-25793.herokuapp.com/';
     ENV.socketNamespace = "wss://cryptic-refuge-25793.herokuapp.com/socket";
   }

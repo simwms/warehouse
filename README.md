@@ -1,4 +1,5 @@
 # Warehouse
+warehouse.github.io
 
 ## ToDeploy
 1. done (unconfirmed employees) - user registration and invitation mechanics
