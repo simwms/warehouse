@@ -28,7 +28,7 @@ module.exports = function(environment) {
     },
     pace: {
       // addon-specific options to configure theme
-      theme: 'loading bar',
+      theme: 'minimal',
       color: 'blue',
       // pace-specific options
       // learn more on http://github.hubspot.com/pace/#configuration
