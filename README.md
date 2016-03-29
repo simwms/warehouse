@@ -1,5 +1,5 @@
 # Warehouse
-warehouse.github.io
+http://simwms.github.io/warehouse
 
 ## ToDeploy
 1. done (unconfirmed employees) - user registration and invitation mechanics
