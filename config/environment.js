@@ -28,7 +28,7 @@ module.exports = function(environment) {
     },
     pace: {
       // addon-specific options to configure theme
-      theme: 'minimal',
+      theme: 'loading-bar',
       color: 'blue',
       // pace-specific options
       // learn more on http://github.hubspot.com/pace/#configuration
@@ -84,11 +84,11 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  if (environment === 'production') {
+  if (environment === 'production' || environment === "staging") {
     ENV.locationType = 'hash';
     ENV.baseURL = '/warehouse/';
     ENV.host = 'https://cryptic-refuge-25793.herokuapp.com/';
-    ENV.socketNamespace = "ws://cryptic-refuge-25793.herokuapp.com/socket";
+    ENV.socketNamespace = "wss://cryptic-refuge-25793.herokuapp.com/socket";
   }
 
   return ENV;
