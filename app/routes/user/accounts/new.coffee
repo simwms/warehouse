@@ -5,11 +5,12 @@ UserAccountsNewRoute = Ember.Route.extend
     @store.createRecord "account",
       user: @modelFor "user"
 
-  modelCreated: ->
-    @controllerFor "user.accounts.new"
-    .get "model"
+  modelCreated: (model) ->
+    @modelFor "user"
     .get "employees"
-    .get "firstObject"
+    .reload()
+    .then (employees) ->
+      employees.get("firstObject")
     .then (employee) =>
       @send "selectEmployee", employee
 

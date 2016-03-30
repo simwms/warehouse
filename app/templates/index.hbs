@@ -18,9 +18,14 @@
         {{em-email-field f label="Employee Email"}}
         {{em-password-field f label="Password"}}
         <div class="actions">
-          <button type="submit" class="btn btn-lg btn-primary">
-            {{fa-icon "check"}}
-            <span class="fa">Submit</span>
+          <button type="submit" class="btn btn-lg btn-primary {{if model.isSaving "disabled"}}">
+            {{#if model.isLoaded}}
+              {{fa-icon "check"}}
+              <span class="fa">Submit</span>
+            {{else}}
+              {{fa-icon "cog" spin=true}}
+              <span class="fa">Busy...</span>
+            {{/if}}
           </button>
         </div>
       {{/em-form-for}}
