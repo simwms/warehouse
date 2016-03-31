@@ -1,22 +1,21 @@
 <div class="container-fluid">
   <div class="navbar-header">
-    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-roles">
-      <span class="sr-only">Toggle Navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
     {{#link-to "index" class="navbar-brand"}}
       <span class="fa">SimWMS</span>
     {{/link-to}}
   </div>
-  <div id="nav-roles" class="collapse navbar-collapse">
-    <ul class="nav navbar-nav navbar-right">
-      {{#link-to "index" tagName="li"}}
-        {{#link-to "index"}}
-          {{fa-icon "bomb"}}
-        {{/link-to}}
-      {{/link-to}}
-    </ul>
-  </div>
+  <p class="navbar-text">
+    {{#if xession.loggedIn}}
+      Signed in as <strong class="signed-in-as">{{xession.model.email}}</strong>
+    {{else}}
+      You are not signed in
+    {{/if}}
+  </p>
+  <ul class="nav navbar-nav navbar-right hidden-lg">
+    <li>
+      <button class="btn btn-default navbar-btn" {{action toggle}}>
+        {{fa-icon "bars"}}
+      </button>
+    </li>
+  </ul>
 </div>

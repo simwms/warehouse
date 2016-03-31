@@ -6,7 +6,7 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     babel: { includePolyfill: true },
     'ember-font-awesome': {
-      useScss: true, // for ember-cli-sass
+      useScss: true // for ember-cli-sass
     },
     sassOptions: {
       includePaths: [

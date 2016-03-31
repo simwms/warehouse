@@ -10,6 +10,8 @@ module.exports = function(environment) {
     cookieKey: "_apiv4_key",
     host: "http://localhost:4000",
     socketNamespace: "ws://localhost:4000/socket",
+    // host: 'https://cryptic-refuge-25793.herokuapp.com/',
+    // socketNamespace: "wss://cryptic-refuge-25793.herokuapp.com/socket",
     "ember-simple-auth": {
       authenticationRoute: "index"
     },

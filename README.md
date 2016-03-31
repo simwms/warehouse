@@ -1,6 +1,11 @@
 # Warehouse
 http://simwms.github.io/warehouse
 
+## TODO
+1. (done) - fix sidenav so it's properly synced with top nav
+2. fix company input on new appointments (and write tests)
+3. make the gifs required to complete the website
+
 ## ToDeploy
 1. done (unconfirmed employees) - user registration and invitation mechanics
 2. done (we now ship metas) - properly updating account-details

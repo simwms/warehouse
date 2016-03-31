@@ -20,6 +20,33 @@
   left: 0;
   right: 0;
   bottom: 0;
+  overflow-x: hidden;
+}
+
+#special-row {
+  transition: transform 300ms;
+  transition-timing-function: ease-in-out;
+  width: 100vw;
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    width: 150vw;
+  }
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    width: 170vw;
+  }
+  @media (max-width: $screen-xs-max) { 
+    width: 200vw;
+  }
+  &.show-menu {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      transform: translateX(-50vw);
+    }
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      transform: translateX(-70vw);
+    }
+    @media (max-width: $screen-xs-max) { 
+      transform: translateX(-100vw);
+    }
+  }
 }
 
 #game,
@@ -32,14 +59,6 @@
   width: 100%;
   border-left: 2px solid #ccc;
   @include box-shadow(fade-out(#000, 0.8) -2px 0 5px);
-}
-
-#login {
-  background: {
-    position: center center;
-    image: images-url('simcity.jpg')
-  }
-  padding-top: 15vh;
 }
 
 .mdl-card {
