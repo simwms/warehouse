@@ -1,17 +1,17 @@
-{{#if (eq params.length 1)}}
-  {{#link-to (at params 0)}}
+{{#if (eq presentParams.length 1)}}
+  {{#link-to (at presentParams 0)}}
     {{yield}}
   {{/link-to}}
-{{else if (eq params.length 2)}}
-  {{#link-to (at params 0) (at params 1)}}
+{{else if (eq presentParams.length 2)}}
+  {{#link-to (at presentParams 0) (at presentParams 1)}}
     {{yield}}
   {{/link-to}}
-{{else if (eq params.length 3)}}
-  {{#link-to (at params 0) (at params 1) (at params 2)}}
+{{else if (eq presentParams.length 3)}}
+  {{#link-to (at presentParams 0) (at presentParams 1) (at presentParams 2)}}
     {{yield}}
   {{/link-to}}
-{{else if (eq params.length 4)}}
-  {{#link-to (at params 0) (at params 1) (at params 2) (at params 3)}}
+{{else if (eq presentParams.length 4)}}
+  {{#link-to (at presentParams 0) (at presentParams 1) (at presentParams 2) (at presentParams 3)}}
     {{yield}}
   {{/link-to}}
 {{/if}}

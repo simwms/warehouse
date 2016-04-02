@@ -1,9 +1,10 @@
-{{#if paginate}}
-  <div class="col-xs-6">
-    {{paginate-group paginate=paginate}}
-  </div>  
-{{/if}}
-<div class="col-xs-6 {{unless paginate "col-xs-offset-6"}}">
+<div class="col-xs-6">
+  {{#portal-for name="paginate-group"}}
+    {{yield}}
+  {{/portal-for}}
+</div>  
+
+<div class="col-xs-6">
   <div class="text-right">
     {{#link-to (if adminMode "warehouse.admin.index" "warehouse.worker.index") class="btn btn-default"}}
       {{fa-icon "close"}} Close

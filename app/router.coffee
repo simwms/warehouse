@@ -48,13 +48,12 @@ Router.map ->
         view "search"
         model "appointment", ->
           form "edit"
+          view "company"
+          view "truck"
+          view "weighticket"
           collection "batches", ->
             form "new"
-          collection "companies", ->
-            form "new"
           collection "histories"
-          collection "trucks"
-          collection "weightickets"
         collection "companies", ->
           form "new"
 

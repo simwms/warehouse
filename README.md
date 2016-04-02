@@ -5,6 +5,7 @@ http://simwms.github.io/warehouse
 1. (done) - fix sidenav so it's properly synced with top nav
 2. fix company input on new appointments (and write tests)
 3. make the gifs required to complete the website
+4. fix ember pace so that it works
 
 ## ToDeploy
 1. done (unconfirmed employees) - user registration and invitation mechanics

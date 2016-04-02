@@ -9,16 +9,10 @@
     {{#yields.links}}
       <ul class="nav nav-tabs row">
         {{#nav-tab "warehouse.worker.appointments.index"}}
-          {{fa-icon "calendar"}} Today's Appointments
+          {{fa-icon "calendar"}} Appointments
         {{/nav-tab}}
         {{#nav-tab "warehouse.worker.appointments.new"}}
           {{fa-icon "plus"}} New Appointment
-        {{/nav-tab}}
-        {{#nav-tab "warehouse.worker.appointments.companies.new"}}
-          {{fa-icon "building"}} New Company
-        {{/nav-tab}}
-        {{#nav-tab "warehouse.worker.appointments.search"}}
-          {{fa-icon "search"}} Search Appointments
         {{/nav-tab}}
       </ul>
     {{/yields.links}}
@@ -26,7 +20,9 @@
     {{outlet}}
 
     {{#yields.footer}}
-      {{modal-footer paginate=paginate}}
+      {{#modal-footer}}
+        {{paginate-group route="warehouse.worker.appointments" collection=model}}
+      {{/modal-footer}}
     {{/yields.footer}}
   {{/modal-view}}
 {{/modal-dialog}}
