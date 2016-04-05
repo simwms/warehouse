@@ -48,10 +48,8 @@ Router.map ->
         view "search"
         model "appointment", ->
           form "edit"
-          view "company"
-          view "truck"
-          view "weighticket"
-          collection "batches", ->
+          view "out-batches"
+          namespace "in-batches", ->
             form "new"
           collection "histories"
         collection "companies", ->
@@ -67,12 +65,11 @@ Router.map ->
       collection "cells", ->
         model "cell", ->
           form "edit"
+          collection "batches"
           collection "histories"
 
       collection "docks", ->
         model "dock", ->
-          collection "batches", ->
-            form "new"
 
       collection "employees", ->
         model "employee"

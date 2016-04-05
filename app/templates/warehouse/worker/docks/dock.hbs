@@ -2,10 +2,12 @@
   Dock No. {{model.id}}
 {{/portal-content}}
 
-{{#sub-nav model=model pages=(append "index")}}
-  {{#link-to "warehouse.worker.docks.dock.batches.new" class="btn btn-default"}}
-    {{fa-icon "download"}} Unload Batch from Truck
-  {{/link-to}}
+{{#sub-nav model=model pages=(append "index") as |nav|}}
+  {{#if (eq model.historyStatus "truck-enter-dock")}}
+    {{#link-to "warehouse.worker.trucks.truck" model.historyMentionedObject class=nav.btnClass}}
+      {{fa-icon "truck" fixedWidth=true}} Go to Truck
+    {{/link-to}}
+  {{/if}}
 {{/sub-nav}}
 
 {{outlet}}

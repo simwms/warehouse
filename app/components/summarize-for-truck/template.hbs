@@ -1,0 +1,21 @@
+{{#link-to modelPath model class=(concat "list-group-item " truckStatusClass)}}
+  <span class="badge">
+    {{#if (eq truckStatus "onsite")}}
+      {{fa-icon "circle" fixedWidth=true}}
+    {{else if (eq truckStatus "departed")}}
+      {{fa-icon "check-square-o" fixedWidth=true}}
+    {{else if (eq truckStatus "expected")}}
+      {{fa-icon "circle-o" fixedWidth=true}}
+    {{else if (eq truckStatus "late")}}
+      {{fa-icon "bell-slash" fixedWidth=true}}
+    {{else if (eq truckStatus "dead")}}
+      {{fa-icon "archive" fixedWidth=true}}
+    {{else if (eq truckStatus "planned")}}
+      {{fa-icon "clock-o" fixedWidth=true}}
+    {{else}}
+      {{fa-icon "exclamation-circle" fixedWidth=true}}
+    {{/if}}
+    {{truckStatus}}
+  </span>
+  {{autox-summarize-for model=truck fields=fields}}
+{{/link-to}}

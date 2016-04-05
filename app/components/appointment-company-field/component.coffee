@@ -1,18 +1,21 @@
 `import Ember from 'ember'`
-{inject: {service}} = Ember
+`import _x from 'autox/utils/xdash'`
+
+{tapLog} = _x
+{$, inject: {service}} = Ember
 
 AppointmentCompanyFieldComponent = Ember.Component.extend
   store: service "store"
 
   createNewCompany: ->
-    {searchText: name} = (term = @get "currentSearchTerm")
-    store = @get "store"
-    model = @get "model"
+    select = @get("currentSearchTerm")
+    term = select.searchText
+
     @set "isBusy", true
-    store.createRecord "company", {name}
+    @get("store").createRecord "company", name: term
     .save()
     .then (company) ->
-      model.set "comany", company
+      select.actions.choose company
     .finally =>
       @set "currentSearchTerm", null
       @set "isBusy", false

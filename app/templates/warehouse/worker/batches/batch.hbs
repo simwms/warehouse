@@ -2,6 +2,16 @@
   Batch No. {{model.id}}
 {{/portal-content}}
 
-{{sub-nav model=model}}
-
+{{#sub-nav model=model as |nav|}}
+  {{#if model.cell}}
+    {{#link-to "warehouse.worker.cells.cell" model.cell class=nav.btnClass}}
+      {{fa-icon "cube" fixedWidth=true}} Storage Cell
+    {{/link-to}}
+  {{/if}}
+  {{#if model.outAppointment}}
+    {{#link-to "warehouse.worker.appointments.appointment" model.outAppointment class=btnClass}}
+      {{fa-icon "calendar-o" fixedWidth=true}} Pickup Appointment
+    {{/link-to}}
+  {{/if}}
+{{/sub-nav}}
 {{outlet}}

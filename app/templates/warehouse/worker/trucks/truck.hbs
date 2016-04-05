@@ -1,3 +1,15 @@
-{{sub-nav model=model}}
-
+{{#sub-nav model=model as |nav|}}
+  {{#link-to "warehouse.worker.appointments.appointment" model.appointment class=nav.btnClass}}
+    {{fa-icon "calendar-o" fixedWidth=true}} Appointment
+  {{/link-to}}
+  {{#if (eq model.historyStatus "truck-enter-dock")}}
+    {{#link-to "warehouse.worker.appointments.appointment.in-batches.new" model.appointment class=nav.btnClass}}
+      {{fa-icon "download" fixedWidth=true}} New Load
+    {{/link-to}}
+  {{else if (eq model.historyStatus "truck-enter-scale")}}
+    {{#link-to "warehouse.worker.weighticket" model.appointment.weighticket class=nav.btnClass}}
+      {{fa-icon "balance-scale" fixedWidth=true}} Weigh Truck
+    {{/link-to}}
+  {{/if}}
+{{/sub-nav}}
 {{outlet}}

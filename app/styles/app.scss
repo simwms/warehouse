@@ -10,10 +10,12 @@
 
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
-@import "ember-power-select";
 @import "ember-timezone-input";
 @import "pod-styles";
 @import "font-awesome";
+
+@import 'ember-power-select/themes/bootstrap';
+@import "ember-power-select";
 #main {
   position: fixed;
   top: 55px;
@@ -73,4 +75,8 @@
     position: right center;
     image: images-url('warehouse-hero.jpg');
   }
+}
+
+.autox-show-field {
+  background-color: #eee;
 }

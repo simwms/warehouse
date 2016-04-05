@@ -1,0 +1,18 @@
+<div class="complex-action-manager__x">
+  <div class="alert alert-info" role="alert">
+    {{fa-icon "info-circle"}} 
+    Current Action: {{currentAction.modelName}}#{{currentAction.name}}
+    {{#if currentAction.isFulfilled}}
+      needs confirmation
+    {{else if currentAction.isNeedy}}
+      needs {{currentAction.activeModelname}}
+    {{else if currentAction.isComplete}}
+      is complete
+    {{else}}
+      is broken
+    {{/if}}
+    <button type="button" class="close" aria-label="close" {{action abandonCurrentAction}}>
+      {{fa-icon "bomb"}}
+    </button>
+  </div>
+</div>

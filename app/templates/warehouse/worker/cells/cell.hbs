@@ -2,6 +2,10 @@
   Storage Cell No. {{model.id}}
 {{/portal-content}}
 
-{{sub-nav model=model}}
+{{#sub-nav model=model as |nav|}}
+  {{#link-to "warehouse.worker.cells.cell.batches" model class=nav.btnClass}}
+    {{fa-icon "cubes" fixedWidth=true}} Stored Loads
+  {{/link-to}}
+{{/sub-nav}}
 
 {{outlet}}

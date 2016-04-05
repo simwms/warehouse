@@ -2,4 +2,12 @@
   Weight Station No. {{model.id}}
 {{/portal-content}}
 
+{{#sub-nav model=model pages=(append "index") as |nav|}}
+  {{#if (eq model.historyStatus "truck-enter-scale")}}
+    {{#link-to "warehouse.worker.trucks.truck" model.historyMentionedObject class=nav.btnClass}}
+      {{fa-icon "truck" fixedWidth=true}} Go to Truck
+    {{/link-to}}
+  {{/if}}
+{{/sub-nav}}
+
 {{outlet}}

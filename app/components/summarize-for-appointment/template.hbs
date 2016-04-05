@@ -1,0 +1,17 @@
+{{#link-to modelPath model class=(concat "list-group-item " appointmentStatusClass)}}
+  <span class="badge">
+    {{#if (eq appointmentStatus "live")}}
+      {{fa-icon "circle" fixedWidth=true}}
+    {{else if (eq appointmentStatus "stale")}}
+      {{fa-icon "bell-slash" fixedWidth=true}}
+    {{else if (eq appointmentStatus "dead")}}
+      {{fa-icon "archive" fixedWidth=true}}
+    {{else if (eq appointmentStatus "planned")}}
+      {{fa-icon "clock-o" fixedWidth=true}}
+    {{else}}
+      {{fa-icon "exclamation-circle" fixedWidth=true}}
+    {{/if}}
+    {{appointmentStatus}}
+  </span>
+  {{autox-summarize-for model=appointment fields=fields}}
+{{/link-to}}

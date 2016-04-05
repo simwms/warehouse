@@ -2,6 +2,21 @@
   Appt No. {{model.id}}
 {{/portal-content}}
 
-{{sub-nav model=model}}
+{{#sub-nav model=model as |nav|}}
+  {{#link-to "warehouse.worker.appointments.appointment.out-batches" model class=nav.btnClass}}
+    {{fa-icon "upload" fixedWidth=true}} Pickup Loads
+  {{/link-to}}
+    {{#if (gt model.truck.histories.length 1)}}
+      {{#link-to "warehouse.worker.trucks.truck" model.truck class=nav.btnClass}}
+        {{fa-icon "truck" fixedWidth=true}} Truck
+      {{/link-to}}
+      {{#link-to "warehouse.worker.weighticket" model.weighticket class=nav.btnClass}}
+        {{fa-icon "balance-scale" fixedWidth=true}} Weighticket
+      {{/link-to}}
+      {{#link-to "warehouse.worker.appointments.appointment.in-batches.new" model class=nav.btnClass}}
+      {{fa-icon "download" fixedWidth=true}} Dropped Off Load
+    {{/link-to}}
+  {{/if}}
+{{/sub-nav}}
 
 {{outlet}}
